@@ -64,7 +64,7 @@ while i != 100:
 plt.figure()
 
 # Plotting temperature distribution with omega = 0.0
-plt.contourf(np.transpose(t, axes = (1, 0)), origin = 'lower', cmap = 'gray')
+plt.contourf(np.transpose(t, axes = (1, 0)), cmap = 'gray')
 
 # Labels
 plt.title("Temperature Distribution With $\omega = 0.0$", fontsize = 12)
@@ -121,7 +121,7 @@ while i != 100:
 plt.figure()
 
 # Plotting temperature distribution with omega = 0.9
-plt.contourf(np.transpose(t, axes = (1, 0)), origin = 'lower', cmap = 'gray')
+plt.contourf(np.transpose(t, axes = (1, 0)), cmap = 'gray')
 
 # Labels
 plt.title("Temperature Distribution With $\omega = 0.9$", fontsize = 12)
@@ -190,3 +190,17 @@ while delta > TARGET:
     plt.pause(0.01)
 
 print("Temperature at (2.5cm, 1cm): ", t[25, 10])
+
+"Plotting Converged Temperature Distribution"
+plt.figure()
+
+# Plotting converged temperature distribution
+plt.contourf(np.transpose(t, axes = (1, 0)), cmap = 'gray')
+
+# Labels
+plt.title("Converged Temperature Distribution", fontsize = 12)
+plt.xlabel("X Position $(cm)$", fontsize = 12)
+plt.ylabel("Y Position $(cm)$", fontsize = 12)
+
+plt.savefig('Figures\\Converged Temperature Distribution.pdf')
+plt.show()
