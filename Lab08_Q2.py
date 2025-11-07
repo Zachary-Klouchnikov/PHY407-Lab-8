@@ -1,6 +1,8 @@
 __authors__ = "Zachary Klouchnikov and Hannah Semple"
 
-# HEADER
+# This program simulates the vibration of a string fixed at both ends
+# using the finite difference time domain (FTCS) method. It visualizes the
+# displacement of the string over time.
 
 """
 IMPORTS
@@ -27,10 +29,11 @@ V = 100.0 # ms^-1
 h = 10e-6 # Step size
 x = np.linspace(0, L, 100, dtype = float) # Position array
 a = L / (len(x) - 1) # Spatial step size
-
-"Initial Conditions"
 phi = np.zeros_like(x, dtype = float) # Displacement array
-psi = ((C * x * (L - x)) / (L ** 2)) * np.exp((-(x - D) ** 2) / (2 * SIGMA ** 2)) # Velocity array
+
+# Velocity array
+psi = ((C * x * (L - x)) / (L ** 2)) * np.exp((-(x - D) ** 2) / (2 * 
+                                                                 SIGMA ** 2)) 
 
 "Main FTCS Loop"
 new_phi = np.zeros_like(phi, dtype = float)
@@ -42,7 +45,8 @@ frame_counter = 0
 while t < 0.02:
     for i in range(1, len(x) - 1):
         new_phi[i] = phi[i] + h * psi[i]
-        new_psi[i] = psi[i] + h * (V ** 2 / a ** 2) * (phi[i + 1] + phi[i - 1] - 2 * phi[i])
+        new_psi[i] = psi[i] + h * (V ** 2 / a ** 2) * (phi[i + 1] + 
+                                                       phi[i - 1] - 2 * phi[i])
     
     # Update boundary conditions
     new_phi[0] = 0.0
@@ -66,6 +70,12 @@ while t < 0.02:
         plt.xlabel("Position Along String $(m)$", fontsize = 12)
         plt.ylabel("Displacement $(m)$", fontsize = 12)
 
-        if t in [0.0, 0.005, 0.01, 0.015, 0.02]:
-            plt.savefig(f'Figures\\Displacement of a Vibrating String at t = {t:.3f} s.pdf')
+        # Limits
+        plt.xlim(0, L)
+        plt.ylim(-0.001, 0.001)
+
+        plt.grid()
+
+        if frame_counter in [200, 600, 800, 900, 1000]:
+            plt.savefig(f'Figures\\Displacement of a Vibrating String at t = {t:.3f}s.pdf')
         plt.pause(0.01)
