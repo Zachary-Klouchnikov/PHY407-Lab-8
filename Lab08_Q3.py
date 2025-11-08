@@ -29,6 +29,7 @@ burger = np.zeros((Nt, Nx))  # Nt many time rows, Nx many distance columns
 burger[0] = np.sin(xs)
 burger[0][0] = 0  # x=0 condition
 burger[0][-1] = 0  # x=Lx condition
+xs = np.linspace(0,Lx,Nx)  #array of x values in m
 
 # one forward euler step in the time domain
 for i in range(1, Nx-1):
