@@ -76,6 +76,6 @@ while t < 0.02:
 
         plt.grid()
 
-        if frame_counter in [200, 600, 800, 900, 1000]:
-            plt.savefig(f'Figures\\Displacement of a Vibrating String at t = {t:.3f}s.pdf')
+        # if frame_counter in [200, 600, 800, 900, 1000]:
+            # plt.savefig(f'Figures\\Displacement of a Vibrating String at t = {t:.3f}s.pdf')
         plt.pause(0.01)
