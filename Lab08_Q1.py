@@ -71,7 +71,7 @@ plt.title("Temperature Distribution With $\omega = 0.0$", fontsize = 12)
 plt.xlabel("X Position $(cm)$", fontsize = 12)
 plt.ylabel("Y Position $(cm)$", fontsize = 12)
 
-plt.savefig('Figures\\Temperature Distribution With Omega = 0.0.pdf')
+# plt.savefig('Figures\\Temperature Distribution With Omega = 0.0.pdf')
 plt.show()
 
 "Initializing Arrays"
@@ -128,7 +128,7 @@ plt.title("Temperature Distribution With $\omega = 0.9$", fontsize = 12)
 plt.xlabel("X Position $(cm)$", fontsize = 12)
 plt.ylabel("Y Position $(cm)$", fontsize = 12)
 
-plt.savefig('Figures\\Temperature Distribution With Omega = 0.9.pdf')
+# plt.savefig('Figures\\Temperature Distribution With Omega = 0.9.pdf')
 plt.show()
 
 """
@@ -202,5 +202,5 @@ plt.title("Converged Temperature Distribution", fontsize = 12)
 plt.xlabel("X Position $(cm)$", fontsize = 12)
 plt.ylabel("Y Position $(cm)$", fontsize = 12)
 
-plt.savefig('Figures\\Converged Temperature Distribution.pdf')
+# plt.savefig('Figures\\Converged Temperature Distribution.pdf')
 plt.show()
